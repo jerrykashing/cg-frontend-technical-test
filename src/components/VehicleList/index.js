@@ -15,26 +15,39 @@ export default function VehicleList() {
   }
 
   return (
-    <div data-testid="results">
-      <p>List of vehicles will be displayed here</p>
-      <p>
-        Visit
-        <a href="/api/vehicles.json" target="_blank"> /api/vehicles.json</a>
-        {' '}
-        (main endpoint)
-      </p>
-      <p>
-        Visit
-        <a href="/api/vehicle_fpace.json" target="_blank">/api/vehicle_fpace.json</a>
-        {' '}
-        (detail endpoint - apiUrl)
-      </p>
-      <p>
-        Visit
-        <a href="/api/vehicle_xf.json" target="_blank">/api/vehicle_xf.json</a>
-        {' '}
-        (vehicle without any price)
-      </p>
+    <div
+      className="vehicle-list"
+      data-testid="results"
+    >
+      <ul>
+        {
+          vehicles.map((vehicle) => {
+            // show image for mobile as default
+            const { name, url: imageUrl } = vehicle.media[1];
+            return (
+              <li
+                key={`vehicle-${vehicle.id}`}
+                className="vehicle"
+              >
+                <picture>
+                  <source media="(max-width: 480px)" srcSet={vehicle.media[1].url} />
+                  <source media="(min-width: 481px)" srcSet={vehicle.media[0].url} />
+                  <img
+                    alt={name}
+                    className="vehicle__image"
+                    src={imageUrl}
+                  />
+                </picture>
+                <div className="vehicle__info">
+                  <h5>{name}</h5>
+                  <div className="vehicle__price">{`From ${vehicle.price}`}</div>
+                  <div className="vehicle__description">{vehicle.description}</div>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
     </div>
   );
 }
