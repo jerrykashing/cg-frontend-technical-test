@@ -37,12 +37,14 @@
 }
 
 @keyframes shine {
+
   to {
     background-position-x: -200%;
   }
 }
 
 @media only screen and (min-width: 481px) {
+
   .loadingCard {
     display: block;
 
