@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingCard from '../LoadingCard';
 import useData from './useData';
 import './style.scss';
 
@@ -7,7 +8,17 @@ export default function VehicleList() {
   const [loading, error, vehicles] = useData();
 
   if (loading) {
-    return <div data-testid="loading">Loading</div>;
+    return (
+      <div className="loadingBox" data-testid="loading">
+        {
+          [...Array(4).keys()].map((index) => (
+            <div key={`loading-card-${index}`}>
+              <LoadingCard />
+            </div>
+          ))
+        }
+      </div>
+    );
   }
 
   if (error) {

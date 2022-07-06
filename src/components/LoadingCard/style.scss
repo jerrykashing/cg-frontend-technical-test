@@ -1,0 +1,36 @@
+.loadingCard {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+
+  &__content {
+    padding: 20px 30px;
+  }
+
+  &__price {
+    height: 24px;
+  }
+
+  &__image {
+    height: 200px;
+  }
+
+  p {
+    height: 14px;
+  }
+
+  &__image,
+  &__price,
+  p {
+    animation: 1.5s shine linear infinite;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes shine {
+
+  to {
+    background-position-x: -200%;
+  }
+}

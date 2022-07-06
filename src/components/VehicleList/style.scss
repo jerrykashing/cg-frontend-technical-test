@@ -1,3 +1,12 @@
+.loadingBox {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > div {
+    width: 100%;
+  }
+}
+
 .vehicle-list {
   width: 100%;
 
@@ -55,6 +64,13 @@
 
 @media only screen and (min-width: 481px) {
 
+  .loadingBox {
+
+    & > div {
+      width: 50%;
+    }
+  }
+
   .vehicle-list {
 
     ul {
@@ -100,6 +116,13 @@
 }
 
 @media only screen and (min-width: 769px) {
+
+  .loadingBox {
+
+    & > div {
+      width: 25%;
+    }
+  }
 
   .vehicle {
     width: 25%;
