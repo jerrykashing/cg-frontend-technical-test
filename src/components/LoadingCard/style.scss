@@ -1,9 +1,16 @@
 .loadingCard {
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+  display: flex;
 
-  &__content {
-    padding: 20px 30px;
+  &__info {
+    border-bottom: 1px solid #EEEEEE;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 0 16px 0;
   }
 
   &__price {
@@ -11,7 +18,8 @@
   }
 
   &__image {
-    height: 200px;
+    height: 100px;
+    width: 100px;
   }
 
   p {
@@ -29,8 +37,26 @@
 }
 
 @keyframes shine {
-
   to {
     background-position-x: -200%;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  .loadingCard {
+    display: block;
+
+    &__info {
+      border-bottom: 0;
+      border-right: 1px solid #EEEEEE;
+      display: block;
+      padding: 24px 8px 8px ;
+      text-align: center;
+    }
+
+    &__image {
+      height: 200px;
+      width: 100%;
+    }
   }
 }
